@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: lightgoldenrodyellow;
+}
+.users-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+}
+.user-block{
+    border: 1px solid darkolivegreen;
+    border-radius: 10px;
+    padding: 20px 80px;
+    background-color: aquamarine;
+    transition: transform 2s, background-color 3s, border-radius 1s ease-in-out;
+    display: flex;
+   justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.user-block:hover{
+    transform: scale(1.1);
+    transition:transform 0.5s ease-in-out, background-color 1s ease-in-out;
+    background-color: lightsalmon;
+    border-radius: 20px;
+
+}

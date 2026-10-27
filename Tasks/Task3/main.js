@@ -351,13 +351,13 @@
         }
     ];
 
+    document.write('<div class="users-box">')
+
     for (let user of usersList){
 
         document.write(
 
-        `<div class="users-box">
-
-            <div class="user-block">
+        `       <div class="user-block">
 
                 <h2>${user.id} - ${user.name} - ${user.username} </h2>
 
@@ -375,11 +375,10 @@
 
                 </div>
 
-            </div>
-</div>`
+           </div>`
         )
     }
-
+        document.write('</div>')
 
 }
 
