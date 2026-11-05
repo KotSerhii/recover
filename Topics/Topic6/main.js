@@ -124,6 +124,49 @@
     // console.log(usersFiltered);
 
     //---------------------build new array from ours---------------------------//
+    let mapedUsers = users.map((user, index) => {
+        // return  {name:user.name, age:user.age,id:index+1};
+        return {...user, id: index + 1};
+    })
+    console.log(mapedUsers);
+
+    //-----------------------find only 1st element-----------------------------//
+    let find = users.find(value => value.name === "Foln"); // {object}
+    console.log(find);
+
+    //------------------------check false or true------------------------------//
+    console.log(users.every(value => value.name === "Jane")); // false (not every name is 'Jane')
+    console.log(users.some(value => value.name === "Jane"));  // true (even 1 name 'Jane')
+
+    //-------------------------sort-------------------------------------------//
+
+    let sortAge = [...users].sort((a, b) => {      // sort age
+        return a.age - b.age;
+    })
+    console.log(sortAge);
+
+    let sortName = [...users].sort((a, b) => {      // sort age
+        if (a.name > b.name) return 1;
+        if (a.name < b.name) return -1;
+        return 0;
+    })
+    console.log(sortName);                                              //!!! method 'sort' changes origin array so we need to make copy of origin array '[...users]'
+
+
+    //-------------------------reduce-----------------------------------------//
+
+    let reduce = users.reduce((accumulator, current) => {
+        if (current.age > 18) {
+            accumulator.ageAdult.push(current.name);
+        } else {
+            accumulator.ageYoung.push(current.name);
+        }
+        return accumulator;                                 // !!!very important return acc for every iteration
+    }, {ageAdult: [], ageYoung: []});
+
+    console.log(reduce);                                                            // don't change original array
+
+
 
 
 }
