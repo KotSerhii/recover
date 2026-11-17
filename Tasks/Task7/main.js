@@ -246,29 +246,29 @@
 // //
 // //     ! Додатково, знайти необхідну попелюшку за допомогою функції масиву find та відповідного колбеку
 //
-//     class Cinderella {
-//
-//         constructor(name, age, footSize) {
-//             this.name = name;
-//             this.age = age;
-//             this.footSize = footSize;
-//         }
-//     }
-//
-//     let cinderellas = [
-//         new Cinderella('liza', 17, 34),
-//         new Cinderella('fatima', 18, 33),
-//         new Cinderella('karina', 42, 58),
-//         new Cinderella('marina', 19, 26),
-//         new Cinderella('olya', 102, 32),
-//         new Cinderella('adelaida', 26, 18),
-//         new Cinderella('frosya', 23, 45),
-//         new Cinderella('musya', 504, 28),
-//         new Cinderella('dazdraperma', 82, 45),
-//         new Cinderella('shusha', 26, 35),
-//         new Cinderella('gavrilla', 68, 51)
-//     ];
-//     console.log(cinderellas);
+    class Cinderella {
+
+        constructor(name, age, footSize) {
+            this.name = name;
+            this.age = age;
+            this.footSize = footSize;
+        }
+    }
+
+    let cinderellas = [
+        new Cinderella('liza', 17, 34),
+        new Cinderella('fatima', 18, 33),
+        new Cinderella('karina', 42, 58),
+        new Cinderella('marina', 19, 26),
+        new Cinderella('olya', 102, 32),
+        new Cinderella('adelaida', 26, 18),
+        new Cinderella('frosya', 23, 45),
+        new Cinderella('musya', 504, 28),
+        new Cinderella('dazdraperma', 82, 45),
+        new Cinderella('shusha', 26, 35),
+        new Cinderella('gavrilla', 68, 51)
+    ];
+    console.log(cinderellas);
 //
 //     class Prince {
 //         constructor(name, age, foundShoe) {
@@ -279,7 +279,7 @@
 //
 //     }
 //
-//     let prince = new Prince('alan', 26, 33);
+//     let prince = new Prince('alan', 26, 32);
 //     console.log(prince);
 //     console.log(prince.foundShoe);
 //
@@ -291,15 +291,32 @@
 //         }
 //     }
 //
-//     const cinderella = cinderellas.find(cinderella=>prince.foundShoe===cinderella.footSize);
+//     const cinderella = cinderellas.find(cinderella=>prince['foundShoe']===cinderella['footSize']);
 //     console.log(cinderella);
 
 
     // #gsKLAsNWM
     //
     // Через Array.prototype. створити власний foreach, filter
+Array.prototype.foreachMine= function (callback){
+const array=this;
+    for (const item of array) {
+         callback(item);
+    }
+}
+cinderellas.foreachMine(cinderella=>console.log(cinderella));
 
+Array.prototype.filterMine = function (callback){
+    const array = this;
+    let newArray = [];
+    for (const arrayElement of array) {
+        if(callback(arrayElement)){
+            newArray.push(arrayElement);
+        }
+    }
+    return newArray;
+}
 
-
+    console.log(cinderellas.filterMine(cinderella => cinderella.age < 35));
 
 }
