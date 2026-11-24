@@ -103,18 +103,18 @@
 //
 //     Завдання робити через цикли.
 
-    for (const course of coursesAndDurationArray) {
-        let div = document.createElement('div');
-        let heading = document.createElement('h1');
-        let description = document.createElement('p');
-        div.classList.add('item');
-        heading.classList.add('heading');
-        description.classList.add('description');
-        heading.innerText = course.title;
-        description.innerText = course.monthDuration;
-        div.append(heading, description);
-        document.body.appendChild(div);
-    }
+    // for (const course of coursesAndDurationArray) {
+    //     let div = document.createElement('div');
+    //     let heading = document.createElement('h1');
+    //     let description = document.createElement('p');
+    //     div.classList.add('item');
+    //     heading.classList.add('heading');
+    //     description.classList.add('description');
+    //     heading.innerText = course.title;
+    //     description.innerText = course.monthDuration;
+    //     div.append(heading, description);
+    //     document.body.appendChild(div);
+    // }
 
 
     // - Є масив coursesArray котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)
@@ -188,6 +188,30 @@
             modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
         }
     ];
+    for (const course of coursesArray) {
+        const div=document.createElement('div');
+        div.classList.add('course');
+        const h2 = document.createElement('h2');
+        h2.innerText = course.title;
+        const months = document.createElement('p');
+        months.classList.add('duration');
+        months.innerText=`Months: ${course.monthDuration}`;
+        const hours = document.createElement('p')
+        hours.classList.add('duration');
+        hours.innerText=`Hours: ${course.hourDuration}`;
+        const modules=document.createElement('ul');
+        for (const item of course.modules) {
+            const module=document.createElement('li');
+            module.innerText=item;
+            modules.appendChild(module);
+        }
+
+        div.append(h2,months,hours,modules);
+        document.body.appendChild(div);
+
+
+
+    }
 
 
 
